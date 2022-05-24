@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Client.cpp                                         :+:      :+:    :+:   */
+/*   utile.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 17:32:24 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/24 14:03:59 by asebrech         ###   ########.fr       */
+/*   Created: 2022/05/24 16:26:13 by asebrech          #+#    #+#             */
+/*   Updated: 2022/05/24 16:36:52 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Client.hpp"
+#ifndef UTILE_HPP
+# define UTILE_HPP
 
-Client::Client() : socket(0) {}
+# include "Server.hpp"
 
-Client::Client(int sd) : socket(sd) {}
+std::vector<std::string> split(const std::string& s, char seperator);
 
-Client::~Client() {}
-
-int	Client::getSocket() const { return(socket); }
-
-void	Client::setSocket(int sd) { socket = sd; }
+#endif

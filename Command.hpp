@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Client.cpp                                         :+:      :+:    :+:   */
+/*   Command.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 17:32:24 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/24 14:03:59 by asebrech         ###   ########.fr       */
+/*   Created: 2022/05/24 16:05:58 by asebrech          #+#    #+#             */
+/*   Updated: 2022/05/24 16:44:49 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Client.hpp"
+#ifndef COMMAND_HPP
+# define COMMAND_HPP
 
-Client::Client() : socket(0) {}
+# include "Server.hpp"
+# include "utile.hpp"
 
-Client::Client(int sd) : socket(sd) {}
+class	Command
+{
+	public :
 
-Client::~Client() {}
+			Command();
+			Command(int pass);
+			~Command();
 
-int	Client::getSocket() const { return(socket); }
+			void	parsCmd(std::string buf, Client const & client);
 
-void	Client::setSocket(int sd) { socket = sd; }
+	private :
+
+			int	pass;
+			std::string	cmd;
+			std::vector<std::string>	cmds;
+};
+
+#endif

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Client.cpp                                         :+:      :+:    :+:   */
+/*   Command.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 17:32:24 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/24 14:03:59 by asebrech         ###   ########.fr       */
+/*   Created: 2022/05/24 16:07:42 by asebrech          #+#    #+#             */
+/*   Updated: 2022/05/24 16:45:27 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Client.hpp"
+#include "Command.hpp"
 
-Client::Client() : socket(0) {}
+Command::Command() {}
 
-Client::Client(int sd) : socket(sd) {}
+Command::Command(int pass) : pass(pass) {}
 
-Client::~Client() {}
+Command::~Command() {}
 
-int	Client::getSocket() const { return(socket); }
-
-void	Client::setSocket(int sd) { socket = sd; }
+void	Command::parsCmd(std::string buf, Client const & client)
+{
+		cmd = buf;
+		cmds = split(buf, ' ');
+		(void)client;
+		(void)pass;
+}

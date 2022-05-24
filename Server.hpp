@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:55:47 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/16 18:15:36 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:40:15 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@
 # include <netinet/in.h>
 # include <arpa/inet.h>
 # include <errno.h>
+# include <unistd.h>
 
+# include <stdexcept>
+# include <iostream>
 # include <string>
+# include <list>
 # include <vector>
 
 # include "Client.hpp"
@@ -39,8 +43,7 @@ class	Server
 			struct sockaddr_in address;
 			int	addrlen;
 			fd_set	readfds;
-			int	max_sd;
-			std::vector<Client>	client;
+			std::list<Client>	client;
 };
 
 #endif

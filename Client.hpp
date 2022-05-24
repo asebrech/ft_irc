@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 17:27:17 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/16 17:38:56 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/05/24 14:03:35 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ class	Client
 {
 	public:
 			Client();
+			Client(int sd);
 			~Client();
 
 			int	getSocket() const;
+			void setSocket(int sd);
 	private:
 			int	socket;
 };
