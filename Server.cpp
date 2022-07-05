@@ -6,11 +6,12 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:47:49 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/24 15:59:34 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:23:29 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Server.hpp"
+#include "utile.hpp"
 
 Server::Server() : port(4242), pass("pass") {}
 
@@ -32,7 +33,7 @@ void	Server::init()
 
 	if (bind(master_socket, (struct sockaddr *)&address, sizeof(address))<0)  
 		throw std::runtime_error("bind failed");
-	std::cout << "Listener on port " << port << std::endl;
+	std::cout << "Listener on port " << port << " pass is " << pass << std::endl;
 
 	if (listen(master_socket, 3) < 0)  
 		throw std::runtime_error("listen");
@@ -61,14 +62,14 @@ void	Server::run()
 			if (sd > max_sd)
 				max_sd = sd;
 		}
-		ret = select( max_sd + 1 , &readfds , NULL , NULL , NULL);  
+		ret = select(max_sd + 1 , &readfds , NULL , NULL , NULL);  
 		if ((ret < 0) && (errno!=EINTR))  
 			throw std::runtime_error("select error");
 		if (FD_ISSET(master_socket, &readfds))  
 		{
 			if ((ret = accept(master_socket, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)  
 				throw std::runtime_error("accept");
-			std::cout << "New connection , socket fd is " << ret << " , ip is : " << inet_ntoa(address.sin_addr) << " , port : " << ntohs(address.sin_port) << std::endl;
+			std::cout << "New connection, socket fd : " << ret << ", IP : " << inet_ntoa(address.sin_addr) << ", port : " << ntohs(address.sin_port) << std::endl;
 			client.push_back(Client(ret));
 		}
 		for (it = client.begin(); it != client.end(); it++)
@@ -76,19 +77,31 @@ void	Server::run()
 			sd = it->getSocket();
 			if (FD_ISSET(sd, &readfds))
 			{
-				if ((ret = recv(sd, (void*)buffer.data(), 1024, 0)) == 0)
+				if ((ret = recv(sd, (void*)&it->getBuff().data()[it->getRet()], 1024, 0)) == 0)
 				{
 					getpeername(sd , (struct sockaddr*)&address , (socklen_t*)&addrlen);  
-					std::cout << "Host disconnected , IP , " << inet_ntoa(address.sin_addr) << " , port , " << ntohs(address.sin_port) << std::endl;
+					std::cout << "Host disconnected, socket fd : " << sd << ", IP : " << inet_ntoa(address.sin_addr) << ", port : " << ntohs(address.sin_port) << std::endl;
 					close(sd);
 					client.erase(it);
 				}	
 				else
 				{
-					buffer[ret] = '\0';
-					std::cout << buffer;
-					buffer.clear();
-					buffer.resize(1024);
+					it->setRet(it->getRet() + ret);
+					if (it->getBuff()[it->getRet() - 1] == '\n')
+					{
+						getpeername(sd , (struct sockaddr*)&address , (socklen_t*)&addrlen);  
+						std::cout << "Command received, socket fd : " << sd << ", IP : " << inet_ntoa(address.sin_addr) << ", port : " << ntohs(address.sin_port)
+						<< ", Content : " << std::endl ;//<< buffer;
+						std::vector<std::string>	cmd = split(it->getBuff(), (char *)"\r\n", 2);
+						std::vector<std::string>::iterator	itt = cmd.begin();
+						std::cout << cmd.size() << std::endl;
+						for (itt = cmd.begin(); itt != cmd.end(); itt++)
+							std::cout << *itt << " | ";
+						std::cout << std::endl;
+						it->getBuff().clear();
+						it->getBuff().resize(1024);
+						it->setRet(0);
+					}
 				}
 			}
 		}

@@ -6,13 +6,13 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:27:10 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/24 16:29:26 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:20:17 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utile.hpp"
 
-std::vector<std::string> split(const std::string& s, char seperator)
+std::vector<std::string> split(const std::string& s, char *seperator, int len)
 {
    std::vector<std::string> output;
 
@@ -24,10 +24,12 @@ std::vector<std::string> split(const std::string& s, char seperator)
 
         output.push_back(substring);
 
-        prev_pos = ++pos;
+		pos += len;
+        prev_pos = pos;
     }
 
-    output.push_back(s.substr(prev_pos, pos-prev_pos));
+	if (prev_pos == 0)
+    	output.push_back(s.substr(prev_pos, pos-prev_pos));
 
     return output;
 }

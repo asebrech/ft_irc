@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:26:13 by asebrech          #+#    #+#             */
-/*   Updated: 2022/05/24 16:36:52 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:20:42 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "Server.hpp"
 
-std::vector<std::string> split(const std::string& s, char seperator);
+std::vector<std::string> split(const std::string& s, char *seperator, int len);
 
 #endif
