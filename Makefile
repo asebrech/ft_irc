@@ -6,7 +6,7 @@
 #    By: asebrech <asebrech@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 14:07:04 by asebrech          #+#    #+#              #
-#    Updated: 2022/05/24 16:33:54 by asebrech         ###   ########.fr        #
+#    Updated: 2022/07/06 15:14:27 by asebrech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = a.out 
 SRC =	main.cpp \
 		Server.cpp \
-		Client.cpp \
+		User.cpp \
 		Command.cpp \
 		utile.cpp
 

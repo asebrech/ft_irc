@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:55:47 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/05 16:26:35 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:23:04 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # include <list>
 # include <vector>
 
-# include "Client.hpp"
+# include "User.hpp"
+# include "Command.hpp"
 
 class	Server
 {
@@ -43,7 +44,8 @@ class	Server
 			struct sockaddr_in address;
 			int	addrlen;
 			fd_set	readfds;
-			std::list<Client>	client;
+			std::list<User>	users;
+			Command	command; 
 };
 
 #endif

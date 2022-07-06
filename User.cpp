@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Client.hpp                                         :+:      :+:    :+:   */
+/*   User.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 17:27:17 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/05 17:51:05 by asebrech         ###   ########.fr       */
+/*   Created: 2022/07/06 15:43:47 by asebrech          #+#    #+#             */
+/*   Updated: 2022/07/06 15:43:50 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLIENT_HPP
-#define CLIENT_HPP
+#include "User.hpp"
 
-#include <string>
+User::User() : socket(0), buffer() {}
 
-class	Client
-{
-	public:
-			Client();
-			Client(int sd);
-			~Client();
+User::User(int sd) : socket(sd), buffer() {}
 
-			int	getSocket() const;
-			void setSocket(int sd);
+User::~User() {}
 
-			int	getRet() const;
-			void setRet(int sd);
+int	User::getSocket() const { return(socket); }
 
-			std::string	& getBuff();
+void	User::setSocket(int sd) { socket = sd; }
 
-	private:
-			int	socket;
-			int	ret;
-			std::string	buffer;
-};
-
-#endif
+std::string & User::getBuff() { return(buffer); }
