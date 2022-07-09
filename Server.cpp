@@ -6,12 +6,11 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:47:49 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/06 17:07:02 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/09 14:49:00 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Server.hpp"
-#include "utile.hpp"
 
 Server::Server() : port(4242), pass("pass"), command(pass, users) {}
 
@@ -68,8 +67,9 @@ void	Server::run()
 		{
 			if ((ret = accept(master_socket, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)  
 				throw std::runtime_error("accept");
-			std::cout << "New connection, socket fd : " << ret << ", IP : " << inet_ntoa(address.sin_addr) << ", port : " << ntohs(address.sin_port) << std::endl;
-			users.push_back(User(ret));
+			User	user(ret, inet_ntoa(address.sin_addr), ntohs(address.sin_port));
+			std::cout << "New connection, socket fd : " << user.getSocket() << ", IP : " << user.getIP() << ", port : " << user.getPort() << std::endl;
+			users.push_back(user);
 		}
 		for (it = users.begin(); it != users.end(); it++)
 		{
@@ -78,8 +78,7 @@ void	Server::run()
 			{
 				if ((ret = recv(sd, (void*)buffer, 1024, 0)) == 0)
 				{
-					getpeername(sd , (struct sockaddr*)&address , (socklen_t*)&addrlen);  
-					std::cout << "Host disconnected, socket fd : " << sd << ", IP : " << inet_ntoa(address.sin_addr) << ", port : " << ntohs(address.sin_port) << std::endl;
+					std::cout << "Host disconnected, socket fd : " << it->getSocket() << ", IP : " << it->getIP() << ", port : " << it->getPort() << std::endl;
 					close(sd);
 					users.erase(it);
 				}	
@@ -89,10 +88,8 @@ void	Server::run()
 					it->getBuff().append(buffer);
 					if (it->getBuff()[it->getBuff().length() - 1] == '\n')
 					{
-						getpeername(sd , (struct sockaddr*)&address , (socklen_t*)&addrlen);  
-						std::cout << "Command received, socket fd : " << sd << ", IP : " << inet_ntoa(address.sin_addr) << ", port : " << ntohs(address.sin_port)
-						<< ", Content : " << std::endl;// << it->getBuff();
-						command.parsCmd(it);
+						std::cout << "Command received, socket fd : " << it->getSocket() << ", IP : " << it->getIP() << ", port : " << it->getPort() << std::endl;
+						command.parsCmd(*it);
 						it->getBuff().clear();
 					}
 					bzero(buffer, ret);

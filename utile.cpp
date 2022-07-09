@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:27:10 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/06 11:17:18 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/09 15:59:53 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ std::vector<std::string> split(const std::string & s, const std::string & sepera
 
     while((pos = s.find(seperator, pos)) != std::string::npos)
     {
+		if (s[prev_pos] == ':')
+		{
+        	std::string substring( s.substr(prev_pos) );
+        	output.push_back(substring);
+			return (output);
+		}
         std::string substring( s.substr(prev_pos, pos-prev_pos) );
 
 		if (!substring.empty())
