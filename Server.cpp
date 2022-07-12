@@ -6,15 +6,30 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:47:49 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/09 14:49:00 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/12 14:12:24 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Server.hpp"
 
-Server::Server() : port(4242), pass("pass"), command(pass, users) {}
+Server::Server() : port(4242), pass("pass"), command(pass, users)
+{
+	myhostname();
+}
 
-Server::~Server() {} ;
+Server::~Server()
+{
+	myhostname();
+}
+
+void	Server::myhostname()
+{
+	char	host[256];
+	struct hostent	*host_entry;
+	gethostname(host, sizeof(host));
+	host_entry = gethostbyname(host);
+	IP = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
+}
 
 void	Server::init()
 {

@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:55:47 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/06 16:23:04 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/12 14:10:31 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/select.h>
 # include <netinet/in.h>
 # include <arpa/inet.h>
+# include <netdb.h>
 # include <errno.h>
 # include <unistd.h>
 
@@ -35,17 +36,20 @@ class	Server
 			Server();
 			~Server();
 
+			void	myhostname();
 			void	init();
 			void	run();
 	private:
 			int	port;
 			std::string	pass;
+			std::string	IP;
+			std::list<User>	users;
+			Command	command; 
+
 			int	master_socket;
 			struct sockaddr_in address;
 			int	addrlen;
 			fd_set	readfds;
-			std::list<User>	users;
-			Command	command; 
 };
 
 #endif

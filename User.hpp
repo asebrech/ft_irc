@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:43:59 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/09 16:36:11 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/12 16:47:16 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ class	User
 			std::string	const & getIP() const;
 			uint32_t	getPort() const;
 			std::string	& getNick();
+			std::string	const & getNick() const;
 			std::string	& getUser();
+			bool	getRegistered() const;
+			void	setRegistered(bool val);
 
 	private:
 			int	socket;
@@ -38,6 +41,7 @@ class	User
 			std::string	buffer;
 			std::string	nick;
 			std::string user;
+			bool	registered;
 };
 
 #endif
