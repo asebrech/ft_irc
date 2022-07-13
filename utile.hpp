@@ -6,12 +6,12 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:26:13 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/06 15:59:05 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/13 09:23:52 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILE_HPP
-# define UTILE_HPP
+#ifndef CLIENT_HPP 
+# define CLIENT_HPP
 
 //# include "Server.hpp"
 # include <string>

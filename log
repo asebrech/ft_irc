@@ -1,192 +1,130 @@
 << CAP LS
 << NICK asebrech
-<< USER asebrech asebrech chat.freenode.net :Alois Sebrechts
->> :*.freenode.net NOTICE * :*** Looking up your ident...
->> :*.freenode.net NOTICE * :*** Looking up your hostname...
->> :*.freenode.net NOTICE * :*** Could not resolve your hostname: Domain not found; using your IP address (62.129.8.171) instead.
->> :*.freenode.net CAP * LS :account-notify account-tag away-notify batch cap-notify chghost draft/relaymsg echo-message extended-join inspircd.org/poison inspircd.org/standard-replies invite-notify labeled-response message-tags multi-prefix sasl server-time setname userhost-in-names 
+<< USER asebrech asebrech 127.0.0.1 :Alois Sebrechts
+>> :10.12.10.1 1 asebrech :Welcome to the ft_irc Internet Relay Network asebrech!asebrech@127.0.0.1
+<< CAP LS
+<< NICK asebrech
+<< USER asebrech asebrech 127.0.0.1 :Alois Sebrechts
+>> :10.12.10.1 1 asebrech :Welcome to the ft_irc Internet Relay Network asebrech!asebrech@127.0.0.1
+<< CAP LS
+<< NICK asebrech
+<< USER asebrech asebrech irc.libera.chat :Alois Sebrechts
+>> :tungsten.libera.chat NOTICE * :*** Checking Ident
+>> :tungsten.libera.chat NOTICE * :*** Looking up your hostname...
+>> :tungsten.libera.chat NOTICE * :*** Couldn't look up your hostname
+>> :tungsten.libera.chat NOTICE * :*** No Ident response
+>> :tungsten.libera.chat CAP * LS :account-notify away-notify chghost extended-join multi-prefix sasl tls account-tag cap-notify echo-message solanum.chat/identify-msg solanum.chat/oper solanum.chat/realhost
 << CAP REQ :multi-prefix
->> PING :oNggVQsin]
-<< PONG :oNggVQsin]
->> :*.freenode.net CAP asebrech ACK :multi-prefix
+>> :tungsten.libera.chat CAP asebrech ACK :multi-prefix
 << CAP END
->> :*.freenode.net NOTICE asebrech :*** Ident lookup timed out, using ~asebrech instead.
->> :*.freenode.net 001 asebrech :Welcome to the freenode IRC Network asebrech!~asebrech@62.129.8.171
+>> :tungsten.libera.chat 001 asebrech :Welcome to the Libera.Chat Internet Relay Chat Network asebrech
 << MODE asebrech +i
->> :*.freenode.net 002 asebrech :Your host is *.freenode.net, running version InspIRCd-3
->> :*.freenode.net 003 asebrech :This server was created 00:17:59 Apr 21 2022
->> :*.freenode.net 004 asebrech *.freenode.net InspIRCd-3 BDHILRSTWcdghikorswxz ABCDEFIJKLMNOPQRSTUWXYZbcdefhijklmnoprstuvwz :BEFIJLWXYZbdefhjklovw
->> :*.freenode.net 005 asebrech ACCEPT=30 AWAYLEN=200 BOT=B CALLERID=g CASEMAPPING=ascii CHANLIMIT=#:20 CHANMODES=IXZbew,k,BEFJLWdfjl,ACDKMNOPQRSTUcimnprstuz CHANNELLEN=64 CHANTYPES=# ELIST=CMNTU ESILENCE=CcdiNnPpTtx EXCEPTS=e :are supported by this server
->> :*.freenode.net 005 asebrech EXTBAN=,ACNOQRSTUacjmnpruwz HOSTLEN=64 INVEX=I KEYLEN=32 KICKLEN=255 LINELEN=512 MAXLIST=I:100,X:100,b:100,e:100,w:100 MAXTARGETS=20 MODES=20 MONITOR=30 NAMELEN=128 NAMESX NETWORK=freenode :are supported by this server
->> :*.freenode.net 005 asebrech NICKLEN=30 PREFIX=(Yohv)!@%+ REMOVE SAFELIST SECURELIST=60 SILENCE=32 STATUSMSG=!@%+ TOPICLEN=390 UHNAMES USERIP USERLEN=10 USERMODES=,,s,BDHILRSTWcdghikorwxz VBANLIST :are supported by this server
->> :*.freenode.net 005 asebrech VLIST=b WATCH=32 WHOX :are supported by this server
->> :*.freenode.net 251 asebrech :There are 20 users and 10474 invisible on 9 servers
->> :*.freenode.net 252 asebrech 7 :operator(s) online
->> :*.freenode.net 253 asebrech 14 :unknown connections
->> :*.freenode.net 254 asebrech 14219 :channels formed
->> :*.freenode.net 255 asebrech :I have 3370 clients and 1 servers
->> :*.freenode.net 265 asebrech :Current local users: 3370  Max: 6046
->> :*.freenode.net 266 asebrech :Current global users: 10494  Max: 10916
->> :*.freenode.net 375 asebrech :*.freenode.net message of the day
->> :*.freenode.net 372 asebrech :  Hello, World!
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  Welcome to the
->> :*.freenode.net 372 asebrech :          __                               _
->> :*.freenode.net 372 asebrech :         / _|_ __ ___  ___ _ __   ___   __| | ___
->> :*.freenode.net 372 asebrech :        | |_| '__/ _ \/ _ \ '_ \ / _ \ / _` |/ _ \
->> :*.freenode.net 372 asebrech :        |  _| | |  __/  __/ | | | (_) | (_| |  __/
->> :*.freenode.net 372 asebrech :        |_| |_|  \___|\___|_| |_|\___/ \__,_|\___|
->> :*.freenode.net 372 asebrech :                                   AUTONOMOUS ZONE
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  Connect to us on:
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  Hostname: irc.freenode.net / chat.freenode.net
->> :*.freenode.net 372 asebrech :  Plaintext: 6660-6669
->> :*.freenode.net 372 asebrech :  TLS/SSL: 6697,7000,7070
->> :*.freenode.net 372 asebrech :  Webchat: https://webchat.freenode.net
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  By connecting to freenode you indicate that you have read and accept our
->> :*.freenode.net 372 asebrech :  policies and guidelines as set out on https://freenode.net and agree to
->> :*.freenode.net 372 asebrech :  be scanned for an open proxy.
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  If you are looking for assistance, please try:
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  #help                    - Help with general IRC and Services.
->> :*.freenode.net 372 asebrech :  #chanhelp                - Help with channels and channel services.
->> :*.freenode.net 372 asebrech :  #IRC                     - Help with the IRC.com by freenode app.
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  Checkout some of our communities and services:
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  #freenode-bbs            - BBS [https://bbs.freenode.net/]
->> :*.freenode.net 372 asebrech :  #freenode-bbs-discussion - BBS Discussion
->> :*.freenode.net 372 asebrech :  #freenode-jobs           - Jobs [https://jobs.freenode.net/]
->> :*.freenode.net 372 asebrech :  #freenode                - Chat about freenode.
->> :*.freenode.net 372 asebrech :  #anonchan                - Chat anonymously.
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  Type /join #<channel>
->> :*.freenode.net 372 asebrech : 
->> :*.freenode.net 372 asebrech :  Thank you for using freenode!
->> :*.freenode.net 376 asebrech :End of message of the day.
->> :*.freenode.net 396 asebrech freenode-a99.759.j1faas.IP :is now your displayed host
->> :asebrech!~asebrech@freenode-a99.759.j1faas.IP MODE asebrech :+wRix
->> :*.freenode.net NOTICE asebrech :*** You are connected to chat.freenode.net using TLS (SSL) cipher 'TLSv1.3-TLS_AES_256_GCM_SHA384'
-<< PING *.freenode.net
->> :*.freenode.net PONG *.freenode.net :*.freenode.net
+>> :tungsten.libera.chat 002 asebrech :Your host is tungsten.libera.chat[130.239.18.120/6665], running version solanum-1.0-dev
+>> :tungsten.libera.chat 003 asebrech :This server was created Mon Jul 11 2022 at 04:02:44 UTC
+>> :tungsten.libera.chat 004 asebrech tungsten.libera.chat solanum-1.0-dev DGMQRSZaghilopsuwz CFILMPQSTbcefgijklmnopqrstuvz bkloveqjfI
+>> :tungsten.libera.chat 005 asebrech FNC MONITOR=100 KNOCK WHOX CALLERID=g ETRACE SAFELIST ELIST=CMNTU CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQSTcgimnprstuz :are supported by this server
+>> :tungsten.libera.chat 005 asebrech CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D :are supported by this server
+>> :tungsten.libera.chat 005 asebrech TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz :are supported by this server
+>> :tungsten.libera.chat 251 asebrech :There are 74 users and 48640 invisible on 28 servers
+>> :tungsten.libera.chat 252 asebrech 42 :IRC Operators online
+>> :tungsten.libera.chat 253 asebrech 24 :unknown connection(s)
+>> :tungsten.libera.chat 254 asebrech 22621 :channels formed
+>> :tungsten.libera.chat 255 asebrech :I have 2811 clients and 1 servers
+>> :tungsten.libera.chat 265 asebrech 2811 2834 :Current local users 2811, max 2834
+>> :tungsten.libera.chat 266 asebrech 48714 49931 :Current global users 48714, max 49931
+>> :tungsten.libera.chat 250 asebrech :Highest connection count: 2835 (2834 clients) (18225 connections received)
+>> :tungsten.libera.chat 375 asebrech :- tungsten.libera.chat Message of the Day - 
+>> :tungsten.libera.chat 372 asebrech :- Welcome to Libera Chat, the IRC network for
+>> :tungsten.libera.chat 372 asebrech :- free & open-source software and peer directed projects.
+>> :tungsten.libera.chat 372 asebrech :-  
+>> :tungsten.libera.chat 372 asebrech :- Use of Libera Chat is governed by our network policies.
+>> :tungsten.libera.chat 372 asebrech :-  
+>> :tungsten.libera.chat 372 asebrech :- To reduce network abuses we perform open proxy checks
+>> :tungsten.libera.chat 372 asebrech :- on hosts at connection time.
+>> :tungsten.libera.chat 372 asebrech :-  
+>> :tungsten.libera.chat 372 asebrech :- Please visit us in #libera for questions and support.
+>> :tungsten.libera.chat 372 asebrech :-  
+>> :tungsten.libera.chat 372 asebrech :- Website and documentation:  https://libera.chat
+>> :tungsten.libera.chat 372 asebrech :- Webchat:                    https://web.libera.chat
+>> :tungsten.libera.chat 372 asebrech :- Network policies:           https://libera.chat/policies
+>> :tungsten.libera.chat 372 asebrech :- Email:                      support@libera.chat
+>> :tungsten.libera.chat 376 asebrech :End of /MOTD command.
+>> :asebrech MODE asebrech :+iw
+<< PING tungsten.libera.chat
+>> :tungsten.libera.chat PONG tungsten.libera.chat :tungsten.libera.chat
 --> lag pong
 << CAP LS
 << NICK asebrech
-<< USER asebrech asebrech irc.ircsource.net :Alois Sebrechts
->> NOTICE AUTH :*** Processing connection to irc.sosdg.org
->> NOTICE AUTH :*** Looking up your hostname...
->> NOTICE AUTH :*** Checking Ident
->> NOTICE AUTH :*** Couldn't look up your hostname
->> NOTICE AUTH :*** No Ident response
->> :irc.sosdg.org CAP * LS :multi-prefix
+<< USER asebrech asebrech irc.libera.chat :Alois Sebrechts
+>> :molybdenum.libera.chat NOTICE * :*** Checking Ident
+>> :molybdenum.libera.chat NOTICE * :*** Looking up your hostname...
+>> :molybdenum.libera.chat NOTICE * :*** Couldn't look up your hostname
+>> :molybdenum.libera.chat NOTICE * :*** No Ident response
+>> :molybdenum.libera.chat CAP * LS :account-notify away-notify chghost extended-join multi-prefix sasl tls account-tag cap-notify echo-message solanum.chat/identify-msg solanum.chat/oper solanum.chat/realhost
 << CAP REQ :multi-prefix
->> :irc.sosdg.org CAP asebrech ACK :multi-prefix 
+>> :molybdenum.libera.chat CAP asebrech ACK :multi-prefix
 << CAP END
->> :irc.sosdg.org 001 asebrech :Welcome to the IRCsource Internet Relay Chat Network asebrech
+>> :molybdenum.libera.chat 001 asebrech :Welcome to the Libera.Chat Internet Relay Chat Network asebrech
 << MODE asebrech +i
->> :irc.sosdg.org 002 asebrech :Your host is irc.sosdg.org[205.233.35.10/6667], running version ircd-ratbox-3.0.10
->> :irc.sosdg.org 003 asebrech :This server was created Tue Jun 13 2017 at 11:22:31 MDT
->> :irc.sosdg.org 004 asebrech irc.sosdg.org ircd-ratbox-3.0.10 oiwszcrkfydnxbauglZCD biklmnopstveIrS bkloveI
->> :irc.sosdg.org 005 asebrech CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIb,k,l,imnpstS CHANLIMIT=&#:25 PREFIX=(ov)@+ MAXLIST=beI:100 MODES=4 NETWORK=IRCsource KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
->> :irc.sosdg.org 005 asebrech SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=9 CHANNELLEN=50 TOPICLEN=160 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=60 :are supported by this server
->> :irc.sosdg.org 005 asebrech FNC ACCEPT=20 MAP TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: :are supported by this server
->> :irc.sosdg.org 251 asebrech :There are 15 users and 77 invisible on 14 servers
->> :irc.sosdg.org 252 asebrech 31 :IRC Operators online
->> :irc.sosdg.org 254 asebrech 45 :channels formed
->> :irc.sosdg.org 255 asebrech :I have 11 clients and 1 servers
->> :irc.sosdg.org 265 asebrech 11 15 :Current local users 11, max 15
->> :irc.sosdg.org 266 asebrech 92 98 :Current global users 92, max 98
->> :irc.sosdg.org 250 asebrech :Highest connection count: 16 (15 clients) (444 connections received)
->> :irc.sosdg.org 375 asebrech :- irc.sosdg.org Message of the Day - 
->> :irc.sosdg.org 372 asebrech :-                  _                            _        
->> :irc.sosdg.org 372 asebrech :-    __      _____| | ___ ___  _ __ ___   ___  | |_ ___  
->> :irc.sosdg.org 372 asebrech :-    \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
->> :irc.sosdg.org 372 asebrech :-     \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
->> :irc.sosdg.org 372 asebrech :-      \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/ 
->> :irc.sosdg.org 372 asebrech :-                           ____   ___  ____  ____   ____ 
->> :irc.sosdg.org 372 asebrech :-                          / ___| / _ \/ ___||  _ \ / ___|
->> :irc.sosdg.org 372 asebrech :-                          \___ \| | | \___ \| | | | |  _ 
->> :irc.sosdg.org 372 asebrech :-                           ___) | |_| |___) | |_| | |_| |
->> :irc.sosdg.org 372 asebrech :-                          |____/ \___/|____/|____/ \____|
->> :irc.sosdg.org 372 asebrech :-  
->> :irc.sosdg.org 372 asebrech :-                          Visit us @ http://www.sosdg.org
->> :irc.sosdg.org 372 asebrech :-   
->> :irc.sosdg.org 372 asebrech :-                         You are connected to irc.sosdg.org  
->> :irc.sosdg.org 372 asebrech :-                  Listening on ports: 5000, 6665 - 6669, 7000 - 7001 
->> :irc.sosdg.org 372 asebrech :-                          Now with SSL on port 6697, 9000
->> :irc.sosdg.org 372 asebrech :-    
->> :irc.sosdg.org 372 asebrech :-    +------- Server Rules ---------------------------------------------+
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |       o No Flooding                     o No Spamming            |
->> :irc.sosdg.org 372 asebrech :-    |       o No Clones                       o No Drones              |
->> :irc.sosdg.org 372 asebrech :-    |       o No Abusive Bots                 o No Whining             |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |        Do NOT ask for spoofs on this server, as we only spoof    |
->> :irc.sosdg.org 372 asebrech :-    |             our opers, staff, and booty call friends.            |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |         Do NOT ask for an O-Line, get a real job instead!        |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    +------- Server Staff ---------------------------------------------+
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |       o IRC Admin: raven                                         |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |       o Co-Admin: gmh                                            |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |       o IRCop: snugglo                                           |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |             Need to talk to us? Please join #SOSDG               |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    +------- Disclaimer -----------------------------------------------+
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |   IRC is an unmoderated chat forum and we shall take no legal    |
->> :irc.sosdg.org 372 asebrech :-    |   liability or responsibility for the content of any messages    |
->> :irc.sosdg.org 372 asebrech :-    |  or files which might pass through this server and the results   |
->> :irc.sosdg.org 372 asebrech :-    |   of running any commands you choose or do not choose to run     |
->> :irc.sosdg.org 372 asebrech :-    |   as a result of being connected to this server.                 |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |   Use of this server is a *privilege* which may be removed at    |
->> :irc.sosdg.org 372 asebrech :-    |    any time and for any reason by the friendly server staff.     |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    +------- Notices --------------------------------------------------+
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |   8 Aug, 2011:    Server up again after spending a few years     |
->> :irc.sosdg.org 372 asebrech :-    |                   under my bed, keeping the trolls away!! We     |
->> :irc.sosdg.org 372 asebrech :-    |                   now support SSL (port 6697 and 9000) and IPv6  |
->> :irc.sosdg.org 372 asebrech :-    |                   access along with IPv4.                        |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    |   2 Sep, 2011:    Voting passed and we are now linked in with    |
->> :irc.sosdg.org 372 asebrech :-    |                   IRCsource. Hope they are ready for some        |
->> :irc.sosdg.org 372 asebrech :-    |                   SOSDG action! :)                               |
->> :irc.sosdg.org 372 asebrech :-    |                                                                  |
->> :irc.sosdg.org 372 asebrech :-    +------- End of MOTD ----------------------------------------------+
->> :irc.sosdg.org 372 asebrech :-  
->> :irc.sosdg.org 372 asebrech :-  
->> :irc.sosdg.org 372 asebrech :-  
->> :irc.sosdg.org 376 asebrech :End of /MOTD command.
->> :asebrech MODE asebrech :+i
-<< PING irc.sosdg.org
->> :irc.sosdg.org PONG irc.sosdg.org :irc.sosdg.org
+>> :molybdenum.libera.chat 002 asebrech :Your host is molybdenum.libera.chat[51.161.82.214/6665], running version solanum-1.0-dev
+>> :molybdenum.libera.chat 003 asebrech :This server was created Mon Jul 4 2022 at 10:14:47 UTC
+>> :molybdenum.libera.chat 004 asebrech molybdenum.libera.chat solanum-1.0-dev DGMQRSZaghilopsuwz CFILMPQSTbcefgijklmnopqrstuvz bkloveqjfI
+>> :molybdenum.libera.chat 005 asebrech WHOX KNOCK MONITOR=100 ETRACE FNC SAFELIST ELIST=CMNTU CALLERID=g CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQSTcgimnprstuz :are supported by this server
+>> :molybdenum.libera.chat 005 asebrech CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D :are supported by this server
+>> :molybdenum.libera.chat 005 asebrech TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz :are supported by this server
+>> :molybdenum.libera.chat 251 asebrech :There are 74 users and 48645 invisible on 28 servers
+>> :molybdenum.libera.chat 252 asebrech 42 :IRC Operators online
+>> :molybdenum.libera.chat 253 asebrech 8 :unknown connection(s)
+>> :molybdenum.libera.chat 254 asebrech 22620 :channels formed
+>> :molybdenum.libera.chat 255 asebrech :I have 2829 clients and 1 servers
+>> :molybdenum.libera.chat 265 asebrech 2829 3029 :Current local users 2829, max 3029
+>> :molybdenum.libera.chat 266 asebrech 48719 49931 :Current global users 48719, max 49931
+>> :molybdenum.libera.chat 250 asebrech :Highest connection count: 3030 (3029 clients) (41347 connections received)
+>> :molybdenum.libera.chat 375 asebrech :- molybdenum.libera.chat Message of the Day - 
+>> :molybdenum.libera.chat 372 asebrech :- -[ Molybdenum ]-[ Atomic number: 42 ]-[ Chemical symbol: Mo ]-
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- Molybdenum has been known throughout history, though its
+>> :molybdenum.libera.chat 372 asebrech :- properties meant that it was confused with lead ores. It was
+>> :molybdenum.libera.chat 372 asebrech :- first identified as a distinct element in 1778, meaning our
+>> :molybdenum.libera.chat 372 asebrech :- modern understanding of its existence reaches about as far
+>> :molybdenum.libera.chat 372 asebrech :- back as American independence.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- Molybdenum has a very high melting point, 2623°C, the fifth-
+>> :molybdenum.libera.chat 372 asebrech :- highest temperature of any element.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- While pure molybdenum is only about as strong as tooth enamel,
+>> :molybdenum.libera.chat 372 asebrech :- it forms strong alloys that are resistant to corrosion and
+>> :molybdenum.libera.chat 372 asebrech :- stable under varying temperatures. As a result, these alloys
+>> :molybdenum.libera.chat 372 asebrech :- are used for metal armour plates, high-performance aircraft
+>> :molybdenum.libera.chat 372 asebrech :- parts, and pumps for molten metal flows.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- In its elemental form, it can be used as a fertiliser, and the
+>> :molybdenum.libera.chat 372 asebrech :- isotope molybdenum-99 is used as a source of technetium-99m,
+>> :molybdenum.libera.chat 372 asebrech :- an important medical radioisotope used for 3D bone scans and
+>> :molybdenum.libera.chat 372 asebrech :- the investigation of blood flow when diagnosing heart disease.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- Welcome to Libera Chat, the IRC network for
+>> :molybdenum.libera.chat 372 asebrech :- free & open-source software and peer directed projects.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- Use of Libera Chat is governed by our network policies.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- To reduce network abuses we perform open proxy checks
+>> :molybdenum.libera.chat 372 asebrech :- on hosts at connection time.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- Please visit us in #libera for questions and support.
+>> :molybdenum.libera.chat 372 asebrech :-  
+>> :molybdenum.libera.chat 372 asebrech :- Website and documentation:  https://libera.chat
+>> :molybdenum.libera.chat 372 asebrech :- Webchat:                    https://web.libera.chat
+>> :molybdenum.libera.chat 372 asebrech :- Network policies:           https://libera.chat/policies
+>> :molybdenum.libera.chat 372 asebrech :- Email:                      support@libera.chat
+>> :molybdenum.libera.chat 376 asebrech :End of /MOTD command.
+>> :asebrech MODE asebrech :+iw
+<< PING molybdenum.libera.chat
+<< NICK alois
+>> :molybdenum.libera.chat PONG molybdenum.libera.chat :molybdenum.libera.chat
 --> lag pong
-<< JOIN #test
->> :asebrech!~asebrech@62.129.8.171 JOIN :#test
->> :irc.sosdg.org 353 asebrech @ #test :asebrech @mage
->> :irc.sosdg.org 366 asebrech #test :End of /NAMES list.
-<< MODE #test
->> :irc.sosdg.org 324 asebrech #test +stn
---> chanquery mode
-<< WHO #test
->> :irc.sosdg.org 329 asebrech #test 1603137669
---> event 329
->> :irc.sosdg.org 352 asebrech #test ~asebrech 62.129.8.171 irc.sosdg.org asebrech H :0 Alois Sebrechts
---> silent event who
->> :irc.sosdg.org 352 asebrech #test mage black.magic irc.unworldly.nl mage H@ :2 If found please return to butcha
---> silent event who
->> :irc.sosdg.org 315 asebrech #test :End of /WHO list.
---> chanquery who end
-<< MODE #test b
->> :irc.sosdg.org 368 asebrech #test :End of Channel Ban List
---> chanquery ban end
-<< PRIVMSG #test :ls
+>> :asebrech!~asebrech@62.129.8.171 NICK :alois
+>> :NickServ!NickServ@services.libera.chat NOTICE alois :This nickname is registered. Please choose a different nickname, or identify via /msg NickServ IDENTIFY alois <password>
+<< NICK alllll
+>> :alois!~asebrech@62.129.8.171 NICK :alllll

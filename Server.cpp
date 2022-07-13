@@ -6,20 +6,22 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:47:49 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/12 14:12:24 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:32:02 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Server.hpp"
 
-Server::Server() : port(4242), pass("pass"), command(pass, users)
+Server::Server() : port(4242), pass(""), command(pass, clients, IP)
 {
 	myhostname();
+	command.setIP(IP);
 }
 
 Server::~Server()
 {
 	myhostname();
+	command.setIP(IP);
 }
 
 void	Server::myhostname()
@@ -60,7 +62,7 @@ void	Server::run()
 	int	sd;
 	int	max_sd;
 	int	ret;
-	std::list<User>::iterator	it;
+	std::list<Client>::iterator	it;
 	char	buffer[1024];
 
 	while(true)
@@ -68,7 +70,7 @@ void	Server::run()
 		FD_ZERO(&readfds);
 		FD_SET(master_socket, &readfds);  
 		max_sd = master_socket;
-		for (it = users.begin(); it != users.end(); it++)
+		for (it = clients.begin(); it != clients.end(); it++)
 		{
 			sd = it->getSocket();		
 			FD_SET(sd, &readfds);
@@ -82,11 +84,11 @@ void	Server::run()
 		{
 			if ((ret = accept(master_socket, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)  
 				throw std::runtime_error("accept");
-			User	user(ret, inet_ntoa(address.sin_addr), ntohs(address.sin_port));
-			std::cout << "New connection, socket fd : " << user.getSocket() << ", IP : " << user.getIP() << ", port : " << user.getPort() << std::endl;
-			users.push_back(user);
+			Client	client(ret, inet_ntoa(address.sin_addr), ntohs(address.sin_port));
+			std::cout << "New connection, socket fd : " << client.getSocket() << ", IP : " << client.getIP() << ", port : " << client.getPort() << std::endl;
+			clients.push_back(client);
 		}
-		for (it = users.begin(); it != users.end(); it++)
+		for (it = clients.begin(); it != clients.end(); it++)
 		{
 			sd = it->getSocket();
 			if (FD_ISSET(sd, &readfds))
@@ -95,7 +97,7 @@ void	Server::run()
 				{
 					std::cout << "Host disconnected, socket fd : " << it->getSocket() << ", IP : " << it->getIP() << ", port : " << it->getPort() << std::endl;
 					close(sd);
-					users.erase(it);
+					clients.erase(it);
 				}	
 				else
 				{
@@ -104,6 +106,7 @@ void	Server::run()
 					if (it->getBuff()[it->getBuff().length() - 1] == '\n')
 					{
 						std::cout << "Command received, socket fd : " << it->getSocket() << ", IP : " << it->getIP() << ", port : " << it->getPort() << std::endl;
+						std::cout << buffer;
 						command.parsCmd(*it);
 						it->getBuff().clear();
 					}

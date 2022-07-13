@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 15:55:47 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/12 14:10:31 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/13 10:15:20 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include <list>
 # include <vector>
 
-# include "User.hpp"
+# include "Client.hpp"
 # include "Command.hpp"
 
 class	Server
@@ -39,11 +39,12 @@ class	Server
 			void	myhostname();
 			void	init();
 			void	run();
+
 	private:
 			int	port;
 			std::string	pass;
 			std::string	IP;
-			std::list<User>	users;
+			std::list<Client>	clients;
 			Command	command; 
 
 			int	master_socket;

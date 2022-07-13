@@ -6,7 +6,7 @@
 /*   By: asebrech <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:05:58 by asebrech          #+#    #+#             */
-/*   Updated: 2022/07/12 17:03:25 by asebrech         ###   ########.fr       */
+/*   Updated: 2022/07/13 16:52:52 by asebrech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <map>
 # include <sys/socket.h>
 
-# include "User.hpp"
+# include "Client.hpp"
 # include "utile.hpp"
 # include "define.hpp"
 
@@ -28,22 +28,37 @@
 
 class	Command
 {
-	typedef void (Command::*pfunc)(std::vector<std::string>, User &);
+	typedef void (Command::*pfunc)(std::vector<std::string>, Client &);
 	public :
 
-			Command(std::string const & pass, std::list<User> & users);
+			Command(std::string const & pass, std::list<Client> & clients, std::string const & IP);
 			~Command();
 
-			void	sendError(User const & user, std::string nb, std::string opt, std::string err);
+			void	sendMsg(Client const & client, std::string nb, std::string opt, std::string err);
 
-			void	parsCmd(User & user);
+			void	sendConfirm(Client const & client, std::vector<std::string> const & cmds);
 
-			void	nick(std::vector<std::string> cmds, User & user);
+			bool	isSpecial(char c) const;
+
+			void	setIP(std::string const & val);
+
+			void	parsCmd(Client & client);
+
+			void	registerClient(Client & client);
+
+			void	nick(std::vector<std::string> cmds, Client & client);
+
+			void	user(std::vector<std::string> cmds, Client & client);
+			
+			void	pass(std::vector<std::string> cmds, Client & client);
+
+			void	quit(std::vector<std::string> cmds, Client & client);
 
 	private :
 
-			std::string	pass;
-			std::list<User> & users;
+			std::string	password;
+			std::list<Client> & clients;
+			std::string	IP;
 			std::map<std::string, pfunc>	cmdMap;
 };
 
